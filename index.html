@@ -1,13 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+
+
+
+    <div class="resultData">
+        <p id="X-axis">N/A</p>
+        <p id="Y-axis">N/A</p>
+        <p id="Z-axis">N/A</p>
+    </div>
+
+
+    <script>
+        let gyroscope = new Gyroscope({ frequency: 60 });
+
+        gyroscope.addEventListener('reading', e => {
+            document.getElementById('X-axis').nodeValue = "Angular velocity along the X-axis " + gyroscope.x;
+            document.getElementById('Y-axis').nodeValue = "Angular velocity along the X-axis " + gyroscope.y;
+            document.getElementById('Z-axis').nodeValue = "Angular velocity along the X-axis " + gyroscope.z;
+        });
+        gyroscope.start();
+    </script>
 
 
 
@@ -18,6 +39,6 @@
 
 
 
-    
 </body>
+
 </html>
